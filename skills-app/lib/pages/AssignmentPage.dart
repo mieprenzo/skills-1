@@ -23,7 +23,7 @@ class AssignmentPage extends StatelessWidget {
     print('response: ' + response.body);
     Navigator.of(
       context,
-    ).push(MaterialPageRoute(builder: (context) => Timer(data: data)));
+    ).push(MaterialPageRoute(builder: (context) => Timer(message: jsonDecode(response.body))));
   }
 
   @override
@@ -60,36 +60,33 @@ class AssignmentPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(padding: EdgeInsets.all(12)),
+                  Padding(padding: EdgeInsets.all(8)),
                   Row(children: [BodyText(text: 'OPDRACHT', fontSize: 12)]),
                   Padding(padding: EdgeInsets.all(4)),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 7,
+                    height: MediaQuery.of(context).size.height / 9,
                     child: TextField(
                       maxLines: null,
-                      onChanged: (val) => {},
+                      onChanged: (val) => setAssignment(val),
                       keyboardType: TextInputType.multiline,
                     ),
                   ),
                   Row(
                     children: [
                       Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: FilledButton(
-                            onPressed: () => callStudent(context),
-                            child: Text('Roep student op'),
-                            style: ButtonStyle(
-                              shape: WidgetStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(4),
-                                  ),
+                        child: FilledButton(
+                          onPressed: () => callStudent(context),
+                          child: Text('Roep student op'),
+                          style: ButtonStyle(
+                            shape: WidgetStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(4),
                                 ),
                               ),
-                              backgroundColor: WidgetStateProperty.all(
-                                Color(0XFF2AABE2),
-                              ),
+                            ),
+                            backgroundColor: WidgetStateProperty.all(
+                              Color(0XFF2AABE2),
                             ),
                           ),
                         ),
