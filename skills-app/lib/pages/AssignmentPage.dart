@@ -23,7 +23,7 @@ class AssignmentPage extends StatelessWidget {
     print('response: ' + response.body);
     Navigator.of(
       context,
-    ).push(MaterialPageRoute(builder: (context) => Timer(message: jsonDecode(response.body))));
+    ).push(MaterialPageRoute(builder: (context) => Timer(message: jsonDecode(response.body), data: data,)));
   }
 
   @override

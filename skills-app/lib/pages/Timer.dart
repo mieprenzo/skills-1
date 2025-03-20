@@ -1,11 +1,13 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
+import 'Rating.dart';
 
 class Timer extends StatelessWidget
 {
   final Map<String, dynamic> message;
+  final Map<String, dynamic> data;
 
-  const Timer({super.key, required this.message});
+  const Timer({super.key, required this.message, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +53,7 @@ class Timer extends StatelessWidget
               child: ElevatedButton(
                 onPressed: () {Navigator.of(
                   context,
-                ).push(MaterialPageRoute(builder: (context) => Timer(message: message)));},
+                ).push(MaterialPageRoute(builder: (context) => RatingPage(data: data)));},
                 child: CircularCountDownTimer(
                 duration: timeLeft,
                 fillColor: Colors.white,
