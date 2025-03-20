@@ -54,6 +54,7 @@ class RegisterPage extends StatelessWidget {
                           ),
                         ],
                       ),
+                      Row(children: [BodyText(text: 'NAAM', fontSize: 12)]),
                       Row(
                         children: [
                           SizedBox(
@@ -95,8 +96,16 @@ class RegisterPage extends StatelessWidget {
                                 onPressed: () => SubmitForm(context),
                                 child: Text('Aanmelden'),
                                 style: ButtonStyle(
-                                  shape: WidgetStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4)))),
-                                  backgroundColor: WidgetStateProperty.all(Color(0XFF6ECEF5)),
+                                  shape: WidgetStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(4),
+                                      ),
+                                    ),
+                                  ),
+                                  backgroundColor: WidgetStateProperty.all(
+                                    Color(0XFF6ECEF5),
+                                  ),
                                 ),
                               ),
                             ),
